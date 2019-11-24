@@ -10,7 +10,7 @@
 <body>
 	<header><h1 class="text-center p-2">Days Calculator</h1></header>
 	<main class="container mt-5">
-		<form th:action="@{/result}" th:object="${dateForm}" method="POST" novalidate>
+		<form th:action="@{/result}" th:object="${dateForm}" method="POST" novalidate class="date-input-form">
 			
 			<div class="form-group">
 				<label for="startDate">Start date</label> 
