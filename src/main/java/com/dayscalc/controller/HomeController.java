@@ -26,10 +26,11 @@ public class HomeController {
 		model.addAttribute("dateForm", dateForm);
 		
 		if (result.hasErrors()) {
+			System.out.println(result.getAllErrors());
             return "index";
         }
 		
-		model.addAttribute("result", ChronoUnit.DAYS.between(dateForm.getStartDate(), dateForm.getEndDate()));
+		model.addAttribute("daysCount", ChronoUnit.DAYS.between(dateForm.getStartDate(), dateForm.getEndDate()));
 		
 		return "result";
 	}

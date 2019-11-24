@@ -5,7 +5,9 @@ import java.time.LocalDate;
 import javax.validation.constraints.NotNull;
 
 import org.springframework.format.annotation.DateTimeFormat;
+import com.dayscalc.validator.EndDateNotBeforeStartDate;
 
+@EndDateNotBeforeStartDate()
 public class DateForm {
 
 	@NotNull()
