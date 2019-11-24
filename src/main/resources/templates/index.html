@@ -2,29 +2,29 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8" />
-<title>Welcome</title>
+<title>Days Calculator</title>
 <link rel="stylesheet" th:href="@{webjars/bootstrap/4.2.1/css/bootstrap.min.css}"/>
 <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}" />
 </head>
 <body>
-	<main class="container">
-		<form>
+	<header><h1 class="text-center p-2">Days Calculator</h1></header>
+	<main class="container mt-5">
+		<form th:action="@{/result}" th:object="${dateForm}" method="POST" novalidate>
 			<div class="form-group">
 				<label for="startDate">Start date</label> 
-				<input type="date" class="form-control" id="startDate" placeholder="dd/mm/yyyy">
+				<input type="date" class="form-control" id="startDate" 
+						placeholder="yyyy-MM-dd" th:field="*{startDate}" required>
+				<span th:if="${#fields.hasErrors('startDate')}" th:errors="*{startDate}" class="text-danger"></span>
 			</div>
 			<div class="form-group">
 				<label for="endDate">End date</label> 
-				<input type="date" class="form-control" id="endDate" placeholder="dd/mm/yyyy">
-			</div>
-			<div class="form-group form-check">
-				<input type="checkbox" class="form-check-input" id="includeEndDate">
-				<label class="form-check-label" for="includeEndDate">
-					Include end date in calculation (1 day is added)
-				</label>
+				<input type="date" class="form-control" id="endDate" 
+						placeholder="yyyy-MM-dd" th:field="*{endDate}" required>
+				<span th:if="${#fields.hasErrors('endDate')}" th:errors="*{endDate}" class="text-danger"></span>
 			</div>
 			<div class="text-center">
 				<button type="submit" class="btn btn-primary">Calculate</button>
+				<a th:href="@{/}" class="btn btn-outline-secondary">Reset</a>
 			</div>		
 		</form>
 	</main>

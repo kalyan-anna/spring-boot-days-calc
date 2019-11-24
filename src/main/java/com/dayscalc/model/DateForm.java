@@ -2,16 +2,25 @@ package com.dayscalc.model;
 
 import java.util.Date;
 
-import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
-public class DateRange {
+import org.springframework.format.annotation.DateTimeFormat;
 
-	@NotBlank(message = "Date is mandatory")
+public class DateForm {
+
+	@NotNull()
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date startDate;
 
-	@NotBlank(message = "Date is mandatory")
+	@NotNull()
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date endDate;
 
+	public DateForm() {
+		this.startDate = new Date();
+		this.endDate = new Date();
+	}
+	
 	public Date getStartDate() {
 		return startDate;
 	}
