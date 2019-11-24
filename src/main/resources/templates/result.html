@@ -12,7 +12,13 @@
 	<header>
 		<h1 class="text-center p-2">Days Calculator</h1>
 	</header>
-	<main>
-		Result: 100 days
+	<main class="container mt-5 text-center">
+		<h2>Result</h2>
+		<p>
+			There are <strong th:text="${result}"></strong> days between 
+			<span th:text="${#temporals.format(dateForm.startDate, 'dd-MMM-yyyy')}"></span> and 
+			<span th:text="${#temporals.format(dateForm.endDate, 'dd-MMM-yyyy')}"></span>
+		</p>
+		<a th:href="@{/}" class="btn btn-outline-secondary">&#139;&#139; Home</a>
 	</main>
 </body>

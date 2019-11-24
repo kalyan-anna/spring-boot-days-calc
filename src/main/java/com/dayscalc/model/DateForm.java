@@ -1,6 +1,6 @@
 package com.dayscalc.model;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 import javax.validation.constraints.NotNull;
 
@@ -10,30 +10,30 @@ public class DateForm {
 
 	@NotNull()
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
-	private Date startDate;
+	private LocalDate startDate;
 
 	@NotNull()
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
-	private Date endDate;
+	private LocalDate endDate;
 
 	public DateForm() {
-		this.startDate = new Date();
-		this.endDate = new Date();
+		this.startDate = LocalDate.now();
+		this.endDate = LocalDate.now();
 	}
 	
-	public Date getStartDate() {
+	public LocalDate getStartDate() {
 		return startDate;
 	}
 
-	public void setStartDate(Date startDate) {
+	public void setStartDate(LocalDate startDate) {
 		this.startDate = startDate;
 	}
 
-	public Date getEndDate() {
+	public LocalDate getEndDate() {
 		return endDate;
 	}
 
-	public void setEndDate(Date endDate) {
+	public void setEndDate(LocalDate endDate) {
 		this.endDate = endDate;
 	}
 }

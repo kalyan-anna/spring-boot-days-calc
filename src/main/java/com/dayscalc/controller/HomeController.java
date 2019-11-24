@@ -1,5 +1,7 @@
 package com.dayscalc.controller;
 
+import java.time.temporal.ChronoUnit;
+
 import javax.validation.Valid;
 
 import org.springframework.stereotype.Controller;
@@ -24,9 +26,10 @@ public class HomeController {
 		model.addAttribute("dateForm", dateForm);
 		
 		if (result.hasErrors()) {
-			System.out.println(result.getAllErrors());
             return "index";
         }
+		
+		model.addAttribute("result", ChronoUnit.DAYS.between(dateForm.getStartDate(), dateForm.getEndDate()));
 		
 		return "result";
 	}
