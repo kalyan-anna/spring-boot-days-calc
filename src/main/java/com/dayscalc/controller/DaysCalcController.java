@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import com.dayscalc.model.DateForm;
 
 @Controller
-public class HomeController {
+public class DaysCalcController {
 
 	@GetMapping("/")
 	public String home(Model model) {
@@ -26,7 +26,6 @@ public class HomeController {
 		model.addAttribute("dateForm", dateForm);
 		
 		if (result.hasErrors()) {
-			System.out.println(result.getAllErrors());
             return "index";
         }
 		

@@ -10,15 +10,19 @@
 </head>
 <body>
 	<header>
-		<h1 class="text-center p-2">Days Calculator</h1>
+		<h1 class="text-primary">Days Calculator</h1>
 	</header>
 	<main class="container mt-5 text-center">
-		<h2>Result</h2>
-		<p>
-			There are <strong th:text="${daysCount}"></strong> days between 
-			<span th:text="${#temporals.format(dateForm.startDate, 'dd-MMM-yyyy')}"></span> and 
-			<span th:text="${#temporals.format(dateForm.endDate, 'dd-MMM-yyyy')}"></span>
-		</p>
-		<a th:href="@{/}" class="btn btn-outline-secondary">&#139;&#139; Try again</a>
+		<div class="card bg-light mb-3">
+	  		<div class="card-body">
+	    		<h2 class="card-title">Result</h2>
+	    		<p>
+	    			There are <strong th:text="${daysCount}"></strong> days between 
+					<span th:text="${#temporals.format(dateForm.startDate, 'dd-MMM-yyyy')}"></span> and 
+					<span th:text="${#temporals.format(dateForm.endDate, 'dd-MMM-yyyy')}"></span>
+				</p>
+				<a th:href="@{/}" class="btn btn-secondary">&#139;&#139; Try again</a>
+	  		</div>
+		</div>
 	</main>
 </body>

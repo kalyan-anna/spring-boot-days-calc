@@ -8,33 +8,39 @@
 <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}" />
 </head>
 <body>
-	<header><h1 class="text-center p-2">Days Calculator</h1></header>
+	<header><h1 class="text-primary">Days Calculator</h1></header>
 	<main class="container mt-5">
-		<form th:action="@{/result}" th:object="${dateForm}" method="POST" novalidate class="date-input-form">
-			
-			<div class="form-group">
-				<label for="startDate">Start date</label> 
-				<input type="date" class="form-control" id="startDate" 
-						placeholder="yyyy-MM-dd" th:field="*{startDate}" required
-						aria-describedby="startDateError">
-				<span id="startDateError" 
-					  th:if="${#fields.hasErrors('startDate')}" th:errors="*{startDate}" class="text-danger"></span>
-			</div>
-			
-			<div class="form-group">
-				<label for="endDate">End date</label> 
-				<input type="date" class="form-control" id="endDate" 
-						placeholder="yyyy-MM-dd" th:field="*{endDate}" required
-						aria-describedby="endDateError">
-				<span id="endDateError"
-					th:if="${#fields.hasErrors('endDate')}" th:errors="*{endDate}" class="text-danger"></span>
-			</div>
-			
-			<div class="text-center">
-				<button type="submit" class="btn btn-primary">Calculate</button>
-				<a th:href="@{/}" class="btn btn-outline-secondary">Reset</a>
-			</div>		
-		</form>
+		<div class="card  mb-3">
+  			<div class="card-header text-white bg-primary text-center">Count days</div>
+		  	<div class="card-body">
+		    	<form th:action="@{/result}" th:object="${dateForm}" method="POST" novalidate class="date-input-form">
+					<!-- Start Date -->
+					<div class="form-group">
+						<label for="startDate">Start date</label> 
+						<input type="date" class="form-control" id="startDate" 
+								placeholder="yyyy-MM-dd" th:field="*{startDate}" required
+								aria-describedby="startDateError">
+						<span id="startDateError" 
+							  th:if="${#fields.hasErrors('startDate')}" th:errors="*{startDate}" class="text-danger"></span>
+					</div>
+					
+					<!-- End Date -->
+					<div class="form-group">
+						<label for="endDate">End date</label> 
+						<input type="date" class="form-control" id="endDate" 
+								placeholder="yyyy-MM-dd" th:field="*{endDate}" required
+								aria-describedby="endDateError">
+						<span id="endDateError"
+							th:if="${#fields.hasErrors('endDate')}" th:errors="*{endDate}" class="text-danger"></span>
+					</div>
+					
+					<div class="text-center">
+						<button type="submit" class="btn btn-primary">Calculate</button>
+						<a th:href="@{/}" class="btn btn-outline-secondary">Reset</a>
+					</div>		
+				</form>
+		  	</div>
+		</div>
 	</main>
 </body>
 
