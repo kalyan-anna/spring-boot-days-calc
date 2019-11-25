@@ -16,4 +16,4 @@ http://localhost:8080/
 
 ## Test
 I ran out of time to add test.   
-If there was an opportunity, I would used @ParameterizedTest in Given-When-Then paradigm. 
+If there was an opportunity, I would use @ParameterizedTest in Given-When-Then paradigm. 
