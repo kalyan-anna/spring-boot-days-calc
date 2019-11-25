@@ -6,6 +6,9 @@
 * Thymeleaf 
 * Bootstrap
 
+## AWS
+http://dayscalculator-env.g7fzhbfdaq.ap-southeast-2.elasticbeanstalk.com/
+
 ## Install
 mvn install
 
