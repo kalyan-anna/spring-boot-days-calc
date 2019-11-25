@@ -9,12 +9,16 @@ public class EndDateNotBeforeStartDateValidator implements ConstraintValidator<E
 
 	@Override
 	public boolean isValid(DateForm dateForm, ConstraintValidatorContext context) {
+		if (dateForm.getEndDate() == null || dateForm.getStartDate() == null) {
+			return true;
+		}
+		
 		if (dateForm.getEndDate().isBefore(dateForm.getStartDate())) {
-			context.disableDefaultConstraintViolation();
 			context.buildConstraintViolationWithTemplate(context.getDefaultConstraintMessageTemplate())
 					.addPropertyNode("endDate").addConstraintViolation();
 			return false;
 		}
+		
 		return true;
 	}
 }

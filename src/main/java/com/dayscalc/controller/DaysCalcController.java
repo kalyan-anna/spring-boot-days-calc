@@ -16,7 +16,7 @@ import com.dayscalc.model.DateForm;
 public class DaysCalcController {
 
 	@GetMapping("/")
-	public String home(Model model) {
+	public String dateForm(Model model) {
 		model.addAttribute("dateForm", new DateForm());
 		return "index";
 	}
@@ -29,8 +29,7 @@ public class DaysCalcController {
             return "index";
         }
 		
-		model.addAttribute("daysCount", ChronoUnit.DAYS.between(dateForm.getStartDate(), dateForm.getEndDate()));
-		
+		model.addAttribute("daysCount", ChronoUnit.DAYS.between(dateForm.getStartDate(), dateForm.getEndDate()));		
 		return "result";
 	}
 }
